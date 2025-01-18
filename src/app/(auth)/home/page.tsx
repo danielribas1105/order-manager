@@ -3,9 +3,9 @@ import { IconClipboardText, IconEdit, IconFileAnalytics, IconFileArrowLeft,  Ico
 
 export default function Home() {
    return (
-      <div className="flex flex-col gap-5 basis-3/4">
-         <h1 className="font-logo font-black text-2xl text-logo-black">Bem-vindo ...usuário!</h1>
-         <div className="flex gap-16 flex-wrap">
+      <div className="flex flex-col items-center md:items-start gap-5 md:basis-3/4">
+         <h1 className="font-logo font-bold text-2xl text-logo-black">Bem-vindo ...usuário!</h1>
+         <div className="flex flex-col md:flex-row md:flex-wrap gap-10">
             <CardHome
                link={"/produtos"}
                titulo={"PRODUTOS"}
