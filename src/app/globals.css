@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+   .container-box {
+      @apply flex px-12 py-4;
+   }
+
    .btn-default {
       @apply flex gap-2 items-center px-4 py-1;
       @apply font-logo text-logo-black;

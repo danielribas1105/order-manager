@@ -2,7 +2,7 @@ import { IconCode, IconHeart, IconMug } from "@tabler/icons-react"
 
 export default function Footer() {
    return (
-      <div className="flex flex-col px-8 py-4">
+      <div className="container-box flex-col">
          <div className="flex gap-2 items-center justify-center md:justify-start">
             <p>Desenvolvido com</p>
             <IconHeart size={20} color="#ff0000" />
