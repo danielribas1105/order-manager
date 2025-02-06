@@ -6,13 +6,14 @@ import Link from "next/link"
 
 export interface CardUsuarioProps {
    usuario: Usuario
+   selecionarUsuario: (usuario: Usuario) => void
    removerUsuario: (usuario: Usuario) => void
 }
 
 export default function CardUsuario(props: CardUsuarioProps) {
    const { usuario } = props
    return (
-      <Link href={`/usuarios/${props.usuario.id}`} className="w-64 h-80 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
+      <div className="w-64 h-80 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
          <div className="w-full h-24 relative bg-white">
             <Image
                src={usuario.imagemURL}
@@ -44,8 +45,7 @@ export default function CardUsuario(props: CardUsuarioProps) {
                   className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-lg text-logo-white bg-blue-400 hover:bg-blue-600 border-2 rounded-md"
                   onClick={(e) => {
                      e.preventDefault()
-                     console.log('Editar usuario')
-                     /* adicionarItem(props.produto) */
+                     props.selecionarUsuario(usuario)
                   }}>
                   <IconEdit size={20} />
                   <span>Editar</span>
@@ -53,7 +53,6 @@ export default function CardUsuario(props: CardUsuarioProps) {
                <button
                   className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-lg text-logo-white bg-red-400 hover:bg-red-600 border-2 rounded-md"
                   onClick={(e) => {
-                     console.log('excluir usuario')
                      e.preventDefault()
                      props.removerUsuario(usuario)
                   }}>
@@ -62,6 +61,6 @@ export default function CardUsuario(props: CardUsuarioProps) {
                </button>
             </div>
          </div>
-      </Link>
+      </div>
    )
 }

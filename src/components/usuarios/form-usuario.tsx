@@ -6,6 +6,7 @@ import BtnsSaveCancel from "../templates/btns-save-cancel"
 
 export interface FormUsuarioProps {
    usuario: Usuario
+   cancelar: () => void
 }
 
 export default function FormUsuario(props: FormUsuarioProps) {
@@ -83,7 +84,7 @@ export default function FormUsuario(props: FormUsuarioProps) {
             </div>
          </div>
          <div className="flex flex-1 justify-end">
-            <BtnsSaveCancel />
+            <BtnsSaveCancel cancelar={props.cancelar}/>
          </div>
       </Container>
    )

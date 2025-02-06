@@ -1,27 +1,23 @@
 'use client'
 import { Usuario } from "@/core"
-import listaUsuarios from "@/core/constants/usuarios"
-import { useState } from "react"
 import CardUsuario from "./card-usuario"
 
-export default function ListaUsuarios() {
+export interface ListaUsuariosProps {
+   usuarios: Usuario[]
+   selecionarUsuario: (usuario: Usuario) => void
+   removerUsuario: (usuario: Usuario) => void
+}
 
-   //const { usuarios } = useUsuarios()
-   const [usuarios, setUsuarios] = useState<Usuario[]>(listaUsuarios)
-
-   function removerUsuario(usuarioRemovido: Usuario) {
-      console.log("funcao remover usuario")
-      const novaListaUsuarios = usuarios.filter((u) => u.id !== usuarioRemovido.id)
-      setUsuarios(novaListaUsuarios)
-   }
+export default function ListaUsuarios(props: ListaUsuariosProps) {
 
    return (
       <div className="flex flex-wrap justify-center gap-4">
-         {usuarios.map((usuario: Usuario) => (
+         {props.usuarios.map((usuario: Usuario) => (
             <CardUsuario
                key={usuario.id}
                usuario={usuario}
-               removerUsuario={() => removerUsuario(usuario)}
+               selecionarUsuario={() => props.selecionarUsuario(usuario)}
+               removerUsuario={() => props.removerUsuario(usuario)}
             />
          ))}
       </div>
