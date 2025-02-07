@@ -6,10 +6,13 @@ import BtnsSaveCancel from "../templates/btns-save-cancel"
 
 export interface FormUsuarioProps {
    usuario: Partial<Usuario>
+   alteraUsuario: (usuario: Partial<Usuario>) => void
+   salvar: () => void
    cancelar: () => void
 }
 
 export default function FormUsuario(props: FormUsuarioProps) {
+   const { usuario, alteraUsuario, salvar, cancelar } = props
    return (
       <Container className="flex-col">
          <div className="flex flex-col justify-between md:flex-row gap-4 items-center mb-4">
@@ -18,10 +21,10 @@ export default function FormUsuario(props: FormUsuarioProps) {
          <div className="flex flex-1 gap-4 mb-6">
             <div className="w-60 h-60 relative bg-white border-2">
                <Image
-                  src={props.usuario.imagemURL ? props.usuario.imagemURL : semImagem}
+                  src={usuario.imagemURL ?? semImagem}
                   fill
                   className="object-contain"
-                  alt={`Foto de perfil ${props.usuario.nome}`}
+                  alt={`Foto de perfil ${usuario.nome}`}
                />
             </div>
             <div className="flex flex-1 flex-col font-texto">
@@ -30,8 +33,9 @@ export default function FormUsuario(props: FormUsuarioProps) {
                      <span>Nome:</span>
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                        placeholder="Nome do produto"
-                        value={props.usuario.nome}
+                        placeholder="Nome"
+                        onChange={ (e) => alteraUsuario({ ...usuario, nome: e.target.value})}
+                        value={usuario.nome ?? ""}
                      />
                   </div>
                   <div className="flex flex-col">
@@ -39,7 +43,7 @@ export default function FormUsuario(props: FormUsuarioProps) {
                      <input
                         className="text-xl text-zinc-400 p-2 rounded-md border-2 outline-none read-only:bg-gray-100"
                         readOnly
-                        value={props.usuario.id}
+                        value={usuario.id ?? ""}
                      />
                   </div>
                </div>
@@ -49,15 +53,17 @@ export default function FormUsuario(props: FormUsuarioProps) {
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                         placeholder="E-mail mais utilizado"
-                        value={props.usuario.email}
+                        onChange={ (e) => alteraUsuario({ ...usuario, email: e.target.value})}
+                        value={usuario.email ?? ""}
                      />
                   </div>
                   <div className="flex flex-1 flex-col">
                      <span>CPF:</span>
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                        placeholder="Marca do produto"
-                        value={props.usuario.cpf}
+                        placeholder="Apenas números"
+                        onChange={ (e) => alteraUsuario({ ...usuario, cpf: e.target.value})}
+                        value={usuario.cpf ?? ""}
                      />
                   </div>
                </div>
@@ -65,7 +71,10 @@ export default function FormUsuario(props: FormUsuarioProps) {
                   <div className="flex flex-1 flex-col">
                      <span>Perfil:</span>
                      <select className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                        defaultValue={props.usuario.perfil}>
+                        defaultValue={usuario.perfil ?? ""}
+                        onChange={ 
+                           (e) => alteraUsuario({ ...usuario, perfil: e.target.value as "Admin" | "Comprador" | "Operacional"})
+                        }>
                         <option value="" disabled hidden>Selecione uma opção</option>
                         <option value="Admin">Admin</option>
                         <option value="Comprador">Comprador</option>
@@ -75,7 +84,10 @@ export default function FormUsuario(props: FormUsuarioProps) {
                   <div className="flex flex-1 flex-col">
                      <span>Status:</span>
                      <select className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                        defaultValue={props.usuario.status}>
+                        defaultValue={usuario.status ?? ""}
+                        onChange={ 
+                           (e) => alteraUsuario({ ...usuario, status: e.target.value as "Ativo" | "Bloqueado" | "Cancelado"})
+                        }>
                         <option value="" disabled hidden>Selecione uma opção</option>
                         <option value="Ativo">Ativo</option>
                         <option value="Bloqueado">Bloqueado</option>
@@ -86,7 +98,7 @@ export default function FormUsuario(props: FormUsuarioProps) {
             </div>
          </div>
          <div className="flex flex-1 justify-end">
-            <BtnsSaveCancel cancelar={props.cancelar}/>
+            <BtnsSaveCancel salvar={salvar} cancelar={cancelar}/>
          </div>
       </Container>
    )

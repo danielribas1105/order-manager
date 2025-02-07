@@ -1,11 +1,12 @@
 'use client'
 import { useState } from "react"
-import { Usuario } from "@/core"
+import { GerarIds, Usuario } from "@/core"
 import listaUsuarios from "@/core/constants/usuarios"
 import Container from "@/components/layout/container"
 import HeaderPage from "@/components/templates/header-page"
 import ListaUsuarios from "@/components/usuarios/lista-usuarios"
 import FormUsuario from "@/components/usuarios/form-usuario"
+import semImagem from "@/../public/images/img-user.png"
 
 export default function UsuariosPage() {
 
@@ -24,6 +25,21 @@ export default function UsuariosPage() {
       setUsuarios(novaListaUsuarios)
    }
 
+   function salvarUsuario() {
+      const usuarioExiste = usuarios.find((u) => u.id === usuarioAtual?.id)
+
+      if(usuarioExiste) {
+         const novosUsuarios = usuarios.map((u) => {
+            console.log(u.imagemURL);
+            return u.id === usuarioAtual?.id ? usuarioAtual : u
+         })
+         setUsuarios(novosUsuarios as Usuario[])
+      }else {
+         setUsuarios([...usuarios, usuarioAtual as Usuario])
+      }
+      setUsuarioAtual(null)
+   }
+
    function cancelar() {
       setUsuarioAtual(null)
    }
@@ -32,14 +48,19 @@ export default function UsuariosPage() {
       <Container className="flex-col">
          <div>
             { usuarioAtual ? (
-               <FormUsuario usuario={usuarioAtual} cancelar={cancelar}/>
+               <FormUsuario 
+                  usuario={usuarioAtual} 
+                  alteraUsuario={selecionarUsuario}
+                  salvar={salvarUsuario}
+                  cancelar={cancelar}
+               />
             ) : (
                <>
                   <HeaderPage
                      titulo="USUÁRIOS CADASTRADOS"
                      textoBtn="Adicionar Usuário"
                      placeholder="Buscar usuário"
-                     functionBtn={() => selecionarUsuario({})}
+                     functionBtn={() => selecionarUsuario({ id: GerarIds.newId() })}
                   />
                   <ListaUsuarios 
                      usuarios={usuarios} 

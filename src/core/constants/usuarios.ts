@@ -1,9 +1,10 @@
 import { v4 as uuidv4} from "uuid"
 import { Usuario } from "../usuario"
+import { GerarIds } from "../utils"
 
 const usuarios: Usuario[] = [
    {
-      id: uuidv4(),
+      id: GerarIds.newId(),
       nome: "Bianca",
       email: "bianca@gmail.com",
       cpf: "123456789-00",
@@ -13,7 +14,7 @@ const usuarios: Usuario[] = [
       status: "Ativo"
    },
    {
-      id: uuidv4(),
+      id: GerarIds.newId(),
       nome: "Leonardo",
       email: "leonardo@gmail.com",
       cpf: "123456789-00",
@@ -23,7 +24,7 @@ const usuarios: Usuario[] = [
       status: "Ativo"
    },
    {
-      id: uuidv4(),
+      id: GerarIds.newId(),
       nome: "Isaac Silva",
       email: "isaac@gmail.com",
       cpf: "123456789-00",
@@ -33,7 +34,7 @@ const usuarios: Usuario[] = [
       status: "Ativo"
    },
    {
-      id: uuidv4(),
+      id: GerarIds.newId(),
       nome: "Adenilson Lopes Marcolino",
       email: "adenilson@gmail.com",
       cpf: "123456789-00",

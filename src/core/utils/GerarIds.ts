@@ -1,4 +1,7 @@
+import { v4 as uuid} from "uuid"
+
 export default class GerarIds {
+   
    static gerarIdUnico(): string {
       const agora = new Date();
 
@@ -13,6 +16,10 @@ export default class GerarIds {
 
       // Concatenar as partes em uma string unica
       return `${ano}${mes}${dia}${hora}${minuto}${segundo}${milissegundos}`;
+   }
+
+   static newId(): string {
+      return uuid();
    }
 
 }
