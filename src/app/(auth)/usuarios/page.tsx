@@ -10,10 +10,10 @@ import FormUsuario from "@/components/usuarios/form-usuario"
 export default function UsuariosPage() {
 
    //const { usuarios } = useUsuarios()
-   const [usuarioAtual, setUsuarioAtual ] = useState<Usuario | null>(null)
+   const [usuarioAtual, setUsuarioAtual ] = useState<Partial<Usuario> | null>(null)
    const [usuarios, setUsuarios] = useState<Usuario[]>(listaUsuarios)
 
-   function selecionarUsuario(usuario: Usuario) {
+   function selecionarUsuario(usuario: Partial<Usuario>) {
       console.log("selecionarUsuario")
       setUsuarioAtual(usuario)
    }
@@ -30,21 +30,23 @@ export default function UsuariosPage() {
 
    return (
       <Container className="flex-col">
-         <HeaderPage
-            titulo="USUÁRIOS CADASTRADOS"
-            linkBtn="/usuarios/addUsuario"
-            textoBtn="Adicionar Usuário"
-            placeholder="Buscar usuário"
-         />
          <div>
             { usuarioAtual ? (
                <FormUsuario usuario={usuarioAtual} cancelar={cancelar}/>
             ) : (
-               <ListaUsuarios 
-                  usuarios={usuarios} 
-                  selecionarUsuario={selecionarUsuario}
-                  removerUsuario={removerUsuario} 
-               />
+               <>
+                  <HeaderPage
+                     titulo="USUÁRIOS CADASTRADOS"
+                     textoBtn="Adicionar Usuário"
+                     placeholder="Buscar usuário"
+                     functionBtn={() => selecionarUsuario({})}
+                  />
+                  <ListaUsuarios 
+                     usuarios={usuarios} 
+                     selecionarUsuario={selecionarUsuario}
+                     removerUsuario={removerUsuario} 
+                  />
+               </>
             )}
          </div>
       </Container>

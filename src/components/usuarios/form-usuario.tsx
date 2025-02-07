@@ -1,22 +1,24 @@
 import Image from "next/image"
+import semImagem from "@/../public/images/img-user.png"
 import { Usuario } from "@/core"
 import Container from "../layout/container"
-import HeaderPageItem from "../templates/header-pageItem"
 import BtnsSaveCancel from "../templates/btns-save-cancel"
 
 export interface FormUsuarioProps {
-   usuario: Usuario
+   usuario: Partial<Usuario>
    cancelar: () => void
 }
 
 export default function FormUsuario(props: FormUsuarioProps) {
    return (
       <Container className="flex-col">
-         <HeaderPageItem titulo={"INFORMAÇÕES DO USUÁRIO"} linkBack={"/usuarios"} />
+         <div className="flex flex-col justify-between md:flex-row gap-4 items-center mb-4">
+            <h2 className="font-logo text-xl text-logo-black">INFORMAÇÕES DO USUÁRIO</h2>
+         </div>
          <div className="flex flex-1 gap-4 mb-6">
             <div className="w-60 h-60 relative bg-white border-2">
                <Image
-                  src={props.usuario.imagemURL}
+                  src={props.usuario.imagemURL ? props.usuario.imagemURL : semImagem}
                   fill
                   className="object-contain"
                   alt={`Foto de perfil ${props.usuario.nome}`}
