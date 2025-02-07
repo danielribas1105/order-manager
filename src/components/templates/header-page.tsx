@@ -1,7 +1,6 @@
 import { IconCornerUpLeft, IconPlus } from "@tabler/icons-react"
 import FiltroProduto from "../produtos/filtro-produto"
 import BotaoLink from "./btn-link"
-import { Usuario } from "@/core"
 
 export interface HeaderPageProps {
    titulo: string

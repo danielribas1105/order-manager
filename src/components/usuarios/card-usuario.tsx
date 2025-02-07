@@ -2,7 +2,6 @@
 import { Usuario } from "@/core"
 import { IconEdit, IconTrash } from "@tabler/icons-react"
 import Image from "next/image"
-import Link from "next/link"
 
 export interface CardUsuarioProps {
    usuario: Usuario

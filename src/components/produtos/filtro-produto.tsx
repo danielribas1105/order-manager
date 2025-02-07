@@ -1,6 +1,5 @@
 'use client'
 import { IconSearch } from '@tabler/icons-react'
-import useProdutos from '@/data/hooks/useProdutos'
 
 export interface FiltroProdutoProps {
    className?: string

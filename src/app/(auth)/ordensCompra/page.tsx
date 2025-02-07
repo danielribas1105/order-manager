@@ -7,10 +7,11 @@ export default function OrdensCompraPage() {
       <Container className="flex-col">
          <HeaderPage
             titulo="ORDENS DE COMPRA CADASTRADAS"
-            linkBtn={"/ordensCompra/addOrdemCompra"}
             textoBtn={"Adicionar Ordem de Compra"}
-            placeholder={"Buscar ordem de compra"}
-         />
+            placeholder={"Buscar ordem de compra"} 
+            functionBtn={function (): void {
+               throw new Error("Function not implemented.");
+            } }         />
          <ListaOrdensCompra />
       </Container>
    )

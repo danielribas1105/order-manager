@@ -1,12 +1,11 @@
 'use client'
-import { useState } from "react"
-import { GerarIds, Usuario } from "@/core"
-import listaUsuarios from "@/core/constants/usuarios"
 import Container from "@/components/layout/container"
 import HeaderPage from "@/components/templates/header-page"
-import ListaUsuarios from "@/components/usuarios/lista-usuarios"
 import FormUsuario from "@/components/usuarios/form-usuario"
-import semImagem from "@/../public/images/img-user.png"
+import ListaUsuarios from "@/components/usuarios/lista-usuarios"
+import { GerarIds, Usuario } from "@/core"
+import listaUsuarios from "@/core/constants/usuarios"
+import { useState } from "react"
 
 export default function UsuariosPage() {
 

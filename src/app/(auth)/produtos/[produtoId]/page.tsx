@@ -87,7 +87,11 @@ export default function InfoProduto(props: any) {
                      value={GerarDatas.dataHoraMinuto()}
                   />
                </div>
-               <BtnsSaveCancel/>
+               <BtnsSaveCancel salvar={function (): void {
+                  throw new Error("Function not implemented.")
+               } } cancelar={function (): void {
+                  throw new Error("Function not implemented.")
+               } }/>
             </div>
             <div className="flex flex-1 gap-4">
                <div className="flex flex-1 flex-col">
