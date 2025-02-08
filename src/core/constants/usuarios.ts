@@ -1,4 +1,3 @@
-import { v4 as uuidv4} from "uuid"
 import { Usuario } from "../usuario"
 import { GerarIds } from "../utils"
 

@@ -1,8 +1,9 @@
 import { Produto } from "../produto"
+import GerarIds from "../utils/GerarIds"
 
 const produtos: Produto[] = [
    {
-      id: "20250115102331780",
+      id: GerarIds.newId(),
       nomeProduto: "Creme dental Oral B 123 70gr",
       marca: "Oral B",
       peso: "70gr",
@@ -16,7 +17,7 @@ const produtos: Produto[] = [
       }
    },
    {
-      id: "20250115101531120",
+      id: GerarIds.newId(),
       nomeProduto: "Arroz Tio João 5Kg",
       marca: "Tio João",
       peso: "5kg",
@@ -30,7 +31,7 @@ const produtos: Produto[] = [
       }
    },
    {
-      id: "20250115092331560",
+      id: GerarIds.newId(),
       nomeProduto: "Sabão em pó Tixan 2,2Kg",
       marca: "Tixan",
       peso: "2,2Kg",

@@ -9,17 +9,14 @@ import { useState } from "react"
 
 export default function UsuariosPage() {
 
-   //const { usuarios } = useUsuarios()
-   const [usuarioAtual, setUsuarioAtual ] = useState<Partial<Usuario> | null>(null)
-   const [usuarios, setUsuarios] = useState<Usuario[]>(listaUsuarios)
+   const [ usuarioAtual, setUsuarioAtual ] = useState<Partial<Usuario> | null>(null)
+   const [ usuarios, setUsuarios ] = useState<Usuario[]>(listaUsuarios)
 
    function selecionarUsuario(usuario: Partial<Usuario>) {
-      console.log("selecionarUsuario")
       setUsuarioAtual(usuario)
    }
 
    function removerUsuario(usuarioRemovido: Usuario) {
-      console.log("removerUsuario")
       const novaListaUsuarios = usuarios.filter((u) => u.id !== usuarioRemovido.id)
       setUsuarios(novaListaUsuarios)
    }
@@ -29,7 +26,6 @@ export default function UsuariosPage() {
 
       if(usuarioExiste) {
          const novosUsuarios = usuarios.map((u) => {
-            console.log(u.imagemURL);
             return u.id === usuarioAtual?.id ? usuarioAtual : u
          })
          setUsuarios(novosUsuarios as Usuario[])

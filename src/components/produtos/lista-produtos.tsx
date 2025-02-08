@@ -1,16 +1,24 @@
 'use client'
 import { Produto } from "@/core"
-import useProdutos from "@/data/hooks/useProdutos"
 import CardProduto from "./card-produto"
 
-export default function ListaProdutos() {
+export interface ListaProdutosProps {
+   produtos: Produto[]
+   selecionarProduto: (produto: Produto) => void
+   removerProduto: (produto: Produto) => void
+}
 
-   const { produtos } = useProdutos()
+export default function ListaProdutos(props: ListaProdutosProps) {
 
    return (
       <div className="flex flex-wrap justify-center gap-4">
-         {produtos.map((produto: Produto) => (
-            <CardProduto key={produto.id} produto={produto} />
+         {props.produtos.map((produto: Produto) => (
+            <CardProduto 
+               key={produto.id} 
+               produto={produto} 
+               selecionarProduto={() => props.selecionarProduto(produto)}
+               removerProduto={() => props.removerProduto(produto)}
+            />
          ))}
       </div>
    )

@@ -1,15 +1,18 @@
-import Link from "next/link"
+'use client'
 import Image from "next/image"
+import { IconEdit, IconTrash } from "@tabler/icons-react"
 import { Produto } from "@/core"
 
 export interface CardProdutoProps {
    produto: Produto
+   selecionarProduto: (produto: Produto) => void
+   removerProduto: (produto: Produto) => void
 }
 
 export default function CardProduto(props: CardProdutoProps) {
-   const { produto } = props;
+   const { produto } = props
    return (
-      <Link href={`/produtos/${props.produto.id}`} className="w-64 h-72 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
+      <div className="w-64 h-72 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
          <div className="w-full h-24 relative bg-white">
             <Image
                src={produto.imagemURL}
@@ -31,6 +34,28 @@ export default function CardProduto(props: CardProdutoProps) {
                <span>{produto.peso}</span>
             </div>
          </div>
-      </Link>
+         <div className="flex justify-center mb-1">
+            <div className="flex gap-2 items-center">
+               <button
+                  className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-lg text-logo-white bg-blue-400 hover:bg-blue-600 border-2 rounded-md"
+                  onClick={(e) => {
+                     e.preventDefault()
+                     props.selecionarProduto(produto)
+                  }}>
+                  <IconEdit size={20} />
+                  <span>Editar</span>
+               </button>
+               <button
+                  className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-lg text-logo-white bg-red-400 hover:bg-red-600 border-2 rounded-md"
+                  onClick={(e) => {
+                     e.preventDefault()
+                     props.removerProduto(produto)
+                  }}>
+                  <IconTrash size={20} />
+                  <span>Excluir</span>
+               </button>
+            </div>
+         </div>
+      </div>
    )
 }

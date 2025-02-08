@@ -1,7 +1,7 @@
 'use client'
-import { Usuario } from "@/core"
-import { IconEdit, IconTrash } from "@tabler/icons-react"
 import Image from "next/image"
+import { IconEdit, IconTrash } from "@tabler/icons-react"
+import { Usuario } from "@/core"
 
 export interface CardUsuarioProps {
    usuario: Usuario

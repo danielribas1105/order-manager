@@ -17,7 +17,7 @@ export default function HeaderPage(props: HeaderPageProps) {
          <div className="flex gap-2">
             <button className="btn-default" onClick={props.functionBtn}>
                <IconPlus size={24}/>
-               Adicionar Usuário
+               {props.textoBtn}
             </button>
             <BotaoLink link={"/home"} texto={"Voltar"} icon={IconCornerUpLeft}/>
          </div>
