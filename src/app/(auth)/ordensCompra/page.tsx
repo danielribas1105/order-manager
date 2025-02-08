@@ -8,10 +8,8 @@ export default function OrdensCompraPage() {
          <HeaderPage
             titulo="ORDENS DE COMPRA CADASTRADAS"
             textoBtn={"Adicionar Ordem de Compra"}
-            placeholder={"Buscar ordem de compra"} 
-            functionBtn={function (): void {
-               throw new Error("Function not implemented.");
-            } }         />
+            placeholder={"Buscar ordem de compra"}        
+         />
          <ListaOrdensCompra />
       </Container>
    )

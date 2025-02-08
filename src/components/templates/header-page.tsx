@@ -6,7 +6,7 @@ export interface HeaderPageProps {
    titulo: string
    textoBtn: string
    placeholder: string
-   functionBtn: () => void
+   functionBtn?: () => void
 }
 
 export default function HeaderPage(props: HeaderPageProps) {
