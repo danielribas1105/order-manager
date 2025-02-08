@@ -6,11 +6,12 @@ export default function ProdutosPage() {
    return (
       <Container className="flex-col">
          <HeaderPage 
-            titulo="PRODUTOS CADASTRADOS" 
-            linkBtn="/produtos/addProduto"
+            titulo="PRODUTOS CADASTRADOS"
             textoBtn="Adicionar Produto"
-            placeholder="Burcar produto"
-         />
+            placeholder="Burcar produto" 
+            functionBtn={function (): void {
+               throw new Error("Function not implemented.")
+            }}/>
          <ListaProdutos/>
       </Container>
    )

@@ -35,7 +35,7 @@ export default function CardUsuario(props: CardUsuarioProps) {
             </div>
             <div className="flex gap-2">
                <span>Status:</span>
-               <span>{usuario.status === 'Ativo' ? 'Ativo' : 'Outro'}</span>
+               <span>{usuario.status}</span>
             </div>
          </div>
          <div className="flex justify-center mb-1">
