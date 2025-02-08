@@ -1,4 +1,3 @@
-import Container from "@/components/layout/container"
 import Footer from "@/components/ui/footer"
 import Header from "@/components/ui/header"
 
