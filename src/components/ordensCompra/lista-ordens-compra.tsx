@@ -1,16 +1,24 @@
 'use client'
 import { OrdemCompra } from "@/core"
-import useOrdensCompra from "@/data/hooks/useOrdensCompra"
 import CardOrdemCompra from "./card-ordem-compra"
 
-export default function ListaOrdensCompra() {
+export interface ListaOrdensCompraProps {
+   ordensCompra: OrdemCompra[]
+   selecionarOrdemCompra: (ordemCompra: OrdemCompra) => void
+   removerOrdemCompra: (ordemCompra: OrdemCompra) => void
+}
 
-   const { ordensCompra } = useOrdensCompra()
+export default function ListaOrdensCompra(props: ListaOrdensCompraProps) {
 
    return (
       <div className="flex flex-wrap justify-center gap-4">
-         {ordensCompra.map((ordemCompra: OrdemCompra) => (
-            <CardOrdemCompra key={ordemCompra.id} ordemCompra={ordemCompra} />
+         {props.ordensCompra.map((ordemCompra: OrdemCompra) => (
+            <CardOrdemCompra
+               key={ordemCompra.id}
+               ordemCompra={ordemCompra}
+               selecionarOrdemCompra={() => props.selecionarOrdemCompra(ordemCompra)}
+               removerOrdemCompra={() => props.removerOrdemCompra(ordemCompra)}
+            />
          ))}
       </div>
    )
