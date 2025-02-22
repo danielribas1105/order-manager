@@ -1,6 +1,6 @@
 export default interface Supermercado {
    id: string
-   nome: string
+   razaoSocial: string
    cnpj: string
    status: 'Ativo' | 'Bloqueado' | 'Cancelado'
    idComprador: string

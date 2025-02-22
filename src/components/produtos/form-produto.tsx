@@ -52,7 +52,7 @@ export default function FormProduto(props: FormProdutoProps) {
                      <span>Marca:</span>
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                        placeholder="E-mail mais utilizado"
+                        placeholder="Informe a marca do produto"
                         onChange={ (e) => alteraProduto({ ...produto, marca: e.target.value})}
                         value={produto.marca ?? ""}
                      />
@@ -61,7 +61,7 @@ export default function FormProduto(props: FormProdutoProps) {
                      <span>Peso:</span>
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                        placeholder="Apenas números"
+                        placeholder="Informe o peso do produto"
                         onChange={ (e) => alteraProduto({ ...produto, peso: e.target.value})}
                         value={produto.peso ?? ""}
                      />

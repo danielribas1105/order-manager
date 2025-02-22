@@ -1,5 +1,5 @@
 import CardHome from "@/components/templates/card-home"
-import { IconClipboardText, IconEdit, IconFileAnalytics, IconFileArrowLeft,  IconShoppingCart, IconUsers } from "@tabler/icons-react"
+import { IconBuildingStore, IconClipboardText, IconEdit, IconFileAnalytics, IconShoppingCart, IconUsers } from "@tabler/icons-react"
 
 export default function Home() {
    return (
@@ -31,10 +31,10 @@ export default function Home() {
                icon={IconUsers}
             />
             <CardHome
-               link={"/importar"}
-               titulo={"IMPORTAR"}
-               descricao={"Módulo para importação de arquivos"}
-               icon={IconFileArrowLeft}
+               link={"/supermercado"}
+               titulo={"SUPERMERCADOS"}
+               descricao={"Supermercados cadastrados"}
+               icon={IconBuildingStore}
             />
             <CardHome
                link={"/relatorios"}

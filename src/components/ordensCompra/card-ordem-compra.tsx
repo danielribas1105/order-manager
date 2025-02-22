@@ -11,18 +11,24 @@ export interface CardOrdemCompraProps {
 export default function CardOrdemCompra(props: CardOrdemCompraProps) {
    const { ordemCompra } = props
    return (
-      <div className="w-64 h-72 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
-         <div className="h-14 my-2 text-xl text-center border-t">
-            {ordemCompra.id}
+      <div className="flex flex-col justify-between w-64 h-72 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
+         <div>
+            <div className="flex gap-2 justify-center my-2 text-xl">
+               <span className="font-semibold">OC:</span>
+               <span>{ordemCompra.id}</span>
+            </div>
+            <div className="font-semibold text-lg text-center text-blue-800">
+               {ordemCompra.idProduto}
+            </div>
          </div>
          <div className="flex flex-col gap-1 mb-3">
             <div className="flex gap-2">
-               <span>Data:</span>
-               <span>{ordemCompra.data}</span>
+               <span>Preço:</span>
+               <span>R$ {ordemCompra.precoPromocional}</span>
             </div>
             <div className="flex gap-2">
-               <span>idProduto:</span>
-               <span>{ordemCompra.idProduto}</span>
+               <span>Data:</span>
+               <span>{ordemCompra.data}</span>
             </div>
             <div className="flex gap-2">
                <span>Status:</span>

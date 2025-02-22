@@ -11,7 +11,7 @@ const ordensCompra: OrdemCompra[] = [
       entrega: "Centralizada",
       observacao: "Faltam 10 pallets para fechar a carga",
       status: 'Ativa',
-      idProduto: "string"
+      idProduto: "Creme dental Oral B 123 70gr"
    },
    {
       id: "20250209111517123",
@@ -23,7 +23,7 @@ const ordensCompra: OrdemCompra[] = [
       entrega: "Centralizada",
       observacao: "Faltam 10 pallets para fechar a carga",
       status: 'Ativa',
-      idProduto: "string"
+      idProduto: "SABÃO OMO LÍQUIDO 3lts"
    }
 ]
 
