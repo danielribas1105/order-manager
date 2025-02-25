@@ -1,11 +1,11 @@
 'use client'
+import { useState } from "react"
 import Container from "@/components/layout/container"
 import HeaderPage from "@/components/templates/header-page"
 import FormSupermercado from "@/components/supermercado/form-supermercado"
+import ListaSupermercados from "@/components/supermercado/lista-supermercado"
 import { GerarIds, Supermercado } from "@/core"
 import listaSupermercados from "@/core/constants/supermercados"
-import { useState } from "react"
-import ListaSupermercados from "@/components/supermercado/lista-supermercado"
 
 export default function SupermercadosPage() {
 
@@ -21,11 +21,34 @@ export default function SupermercadosPage() {
       setSupermercados(novaListaSupermercados)
    }
 
+   function salvarSupermercado() {
+      const supermercadoExiste = supermercados.find((s) => s.id === supermercadoAtual?.id)
+
+      if (supermercadoExiste) {
+         const novosSupermercados = supermercados.map((s) => {
+            return s.id === supermercadoAtual?.id ? supermercadoAtual : s
+         })
+         setSupermercados(novosSupermercados as Supermercado[])
+      } else {
+         setSupermercados([...supermercados, supermercadoAtual as Supermercado])
+      }
+      setSupermercadoAtual(null)
+   }
+
+   function cancelar() {
+      setSupermercadoAtual(null)
+   }
+
    return (
       <Container className="flex-col">
          <div>
             {supermercadoAtual ? (
-               <FormSupermercado />
+               <FormSupermercado
+                  supermercado={supermercadoAtual}
+                  alteraSupermercado={selecionarSupermercado}
+                  salvar={salvarSupermercado}
+                  cancelar={cancelar}
+               />
             ) : (
                <>
                   <HeaderPage

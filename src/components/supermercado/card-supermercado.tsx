@@ -11,8 +11,8 @@ export interface CardSupermercadoProps {
 export default function CardSupermercado(props: CardSupermercadoProps) {
    const { supermercado } = props
    return (
-      <div className="w-64 h-80 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
-         <div className="h-14 my-2 text-xl text-center border-t">
+      <div className="flex flex-col justify-between w-64 h-80 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
+         <div className="h-14 my-2 text-xl text-center">
             {supermercado.razaoSocial}
          </div>
          <div className="flex flex-col gap-1 mb-3">
