@@ -7,7 +7,6 @@ import { IconPlus } from "@tabler/icons-react"
 export interface FormOrdemCompraProps {
    ordemCompra: Partial<OrdemCompra>
    titleForm: string
-   modeForm: string
    alteraOrdemCompra: (ordemCompra: Partial<OrdemCompra>) => void
    salvar: () => void
    cancelar: () => void
