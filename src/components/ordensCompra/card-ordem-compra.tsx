@@ -1,7 +1,6 @@
 'use client'
 import { OrdemCompra } from "@/core"
-import { IconChecklist, IconEdit, IconExternalLink, IconEyeCheck, IconPlus, IconTrash } from "@tabler/icons-react"
-import BotaoLink from "../templates/btn-link"
+import { IconChecklist, IconEdit, IconEyeCheck, IconTrash } from "@tabler/icons-react"
 
 export interface CardOrdemCompraProps {
    ordemCompra: OrdemCompra
@@ -68,7 +67,6 @@ export default function CardOrdemCompra(props: CardOrdemCompraProps) {
                   <IconEyeCheck size={20} />
                   <span>Visualizar</span>
                </button>
-               {/* <BotaoLink link={"/home"} texto={"Visualizar"} icon={IconEyeCheck}/> */}
                <button
                   className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-sm text-logo-white bg-yellow-400 hover:bg-yellow-600 border-2 rounded-md"
                   onClick={(e) => {
