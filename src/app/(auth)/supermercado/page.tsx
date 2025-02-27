@@ -17,6 +17,7 @@ export default function SupermercadosPage() {
    }
 
    function removerSupermercado(supermercadoRemovido: Supermercado) {
+      debugger
       const novaListaSupermercados = supermercados.filter((s) => s.id !== supermercadoRemovido.id)
       setSupermercados(novaListaSupermercados)
    }
