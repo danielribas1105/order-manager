@@ -24,6 +24,18 @@ const ordensCompra: OrdemCompra[] = [
       observacao: "Faltam 10 pallets para fechar a carga",
       status: 'Ativa',
       idProduto: "SABÃO OMO LÍQUIDO 3lts"
+   },
+   {
+      id: "20250226141517145",
+      data: "26/02/2025",
+      precoPromocional: 18.50,
+      prazo: 28,
+      qtdePallets: 20,
+      qtdeCaixasPallet: 30,
+      entrega: "Centralizada",
+      observacao: "",
+      status: 'Ativa',
+      idProduto: "CAFÉ PILÃO 500gr"
    }
 ]
 

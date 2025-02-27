@@ -3,7 +3,7 @@ import { GerarIds } from "../utils"
 
 const usuarios: Usuario[] = [
    {
-      id: GerarIds.newId(),
+      id: '6d9793d6-ab4b-49ce-987c-75352089fb57',
       nome: "Bianca",
       email: "bianca@gmail.com",
       cpf: "123456789-00",
@@ -13,7 +13,7 @@ const usuarios: Usuario[] = [
       status: "Ativo"
    },
    {
-      id: GerarIds.newId(),
+      id: 'ccb5e71b-a66b-4c79-87dc-71879dc06c64',
       nome: "Leonardo",
       email: "leonardo@gmail.com",
       cpf: "123456789-00",
@@ -23,7 +23,7 @@ const usuarios: Usuario[] = [
       status: "Ativo"
    },
    {
-      id: GerarIds.newId(),
+      id: 'cd002167-f5f9-4250-9d2d-562d72a7c42a',
       nome: "Isaac Silva",
       email: "isaac@gmail.com",
       cpf: "123456789-00",
@@ -33,7 +33,7 @@ const usuarios: Usuario[] = [
       status: "Ativo"
    },
    {
-      id: GerarIds.newId(),
+      id: '96d2df84-3d7d-468a-9f16-eea44de62129',
       nome: "Adenilson Lopes Marcolino",
       email: "adenilson@gmail.com",
       cpf: "123456789-00",

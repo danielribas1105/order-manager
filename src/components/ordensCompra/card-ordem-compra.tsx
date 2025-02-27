@@ -1,5 +1,7 @@
 'use client'
-import { OrdemCompra } from "@/core"
+import { useState } from "react"
+import listaPedidos from "@/core/constants/pedidos"
+import { OrdemCompra, Pedido } from "@/core"
 import { IconChecklist, IconEdit, IconEyeCheck, IconTrash } from "@tabler/icons-react"
 
 export interface CardOrdemCompraProps {
@@ -10,6 +12,15 @@ export interface CardOrdemCompraProps {
 
 export default function CardOrdemCompra(props: CardOrdemCompraProps) {
    const { ordemCompra } = props
+   const [ pedidos ] = useState<Pedido[]>(listaPedidos)
+
+   const newListaPedidos = pedidos.filter((p) => p.idOrdemCompra === ordemCompra.id)
+   let qtdeCaixas = 0
+
+   newListaPedidos.forEach(pedido => {
+      qtdeCaixas += pedido.qtdeCaixas
+   });
+
    return (
       <div className="flex flex-col w-auto h-auto bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
          <div className="flex flex-col gap-2 justify-start pb-2 border-b-2">
@@ -47,14 +58,20 @@ export default function CardOrdemCompra(props: CardOrdemCompraProps) {
             </div>
          </div>
          <div className="flex flex-col pt-2 pb-2">
-            <div className="flex gap-2">
-               <span>Quantidade de pedidos:</span>
-               <span>7</span>
-            </div>
-            <div className="flex gap-2">
-               <span>Total de caixas:</span>
-               <span>160</span>
-            </div>
+            {newListaPedidos.length !== 0 ? (
+               <>
+                  <div className="flex gap-2">
+                     <span>Quantidade de pedidos:</span>
+                     <span>{newListaPedidos.length}</span>
+                  </div>
+                  <div className="flex gap-2">
+                     <span>Total de caixas:</span>
+                     <span>{qtdeCaixas}</span>
+                  </div>
+               </>
+            ) : (
+               <span>Sem pedidos cadastrados!</span>
+            )}
          </div>
          <div className="flex justify-center mb-1">
             <div className="flex flex-col md:flex-row gap-2 items-center">
