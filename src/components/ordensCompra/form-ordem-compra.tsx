@@ -6,6 +6,8 @@ import { IconPlus } from "@tabler/icons-react"
 
 export interface FormOrdemCompraProps {
    ordemCompra: Partial<OrdemCompra>
+   titleForm: string
+   modeForm: string
    alteraOrdemCompra: (ordemCompra: Partial<OrdemCompra>) => void
    salvar: () => void
    cancelar: () => void
@@ -13,12 +15,12 @@ export interface FormOrdemCompraProps {
 
 export default function FormOrdemCompra(props: FormOrdemCompraProps) {
 
-   const { ordemCompra, alteraOrdemCompra, salvar, cancelar } = props
+   const { ordemCompra, titleForm, alteraOrdemCompra, salvar, cancelar } = props
 
    return (
       <Container className="flex-col">
          <div className="flex flex-col justify-between md:flex-row gap-4 items-center mb-4">
-            <h2 className="font-logo text-xl text-logo-black">NOVA ORDEM DE COMPRA</h2>
+            <h2 className="title-page-default">{titleForm}</h2>
             <FiltroProduto placeholder={'Buscar produto'} />
             <button
                className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-lg text-logo-white bg-orange-400 hover:bg-orange-600 border-2 rounded-md"

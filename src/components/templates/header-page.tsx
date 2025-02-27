@@ -12,7 +12,7 @@ export interface HeaderPageProps {
 export default function HeaderPage(props: HeaderPageProps) {
    return (
       <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-4">
-         <h2 className="font-logo text-xl text-logo-black">{props.titulo}</h2>
+         <h2 className="title-page-default">{props.titulo}</h2>
          <FiltroProduto placeholder={props.placeholder} />
          <div className="flex gap-2">
             <button className="btn-default" onClick={props.functionBtn}>

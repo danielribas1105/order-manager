@@ -13,4 +13,10 @@
       @apply border-2 rounded-md;
       @apply hover:text-logo-white hover:bg-logo-orange;
    }
+
+   .title-page-default {
+      @apply font-logo;
+      @apply text-lg;
+      @apply text-logo-black;
+   }
 }

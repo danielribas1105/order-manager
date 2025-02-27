@@ -11,6 +11,7 @@ export default function OrdensCompraPage() {
 
    const [ordemCompraAtual, setOrdemCompraAtual] = useState<Partial<OrdemCompra> | null>(null)
    const [ordensCompra, setOrdensCompra] = useState<OrdemCompra[]>(listaOrdensCompra)
+   /* let modeForm = "edit" */
 
    function selecionarOrdemCompra(ordemCompra: Partial<OrdemCompra>) {
       setOrdemCompraAtual(ordemCompra)
@@ -45,6 +46,8 @@ export default function OrdensCompraPage() {
             {ordemCompraAtual ? (
                <FormOrdemCompra 
                   ordemCompra={ordemCompraAtual} 
+                  titleForm="ORDEM DE COMPRA"
+                  modeForm="edit"
                   alteraOrdemCompra={selecionarOrdemCompra} 
                   salvar={salvarOrdemCompra} 
                   cancelar={cancelar} />

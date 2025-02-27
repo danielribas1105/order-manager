@@ -16,7 +16,7 @@ export default function FormProduto(props: FormProdutoProps) {
    return (
       <Container className="flex-col">
          <div className="flex flex-col justify-between md:flex-row gap-4 items-center mb-4">
-            <h2 className="font-logo text-xl text-logo-black">INFORMAÇÕES DO PRODUTO</h2>
+            <h2 className="title-page-default">INFORMAÇÕES DO PRODUTO</h2>
          </div>
          <div className="flex flex-1 gap-4 mb-6">
             <div className="w-60 h-60 relative bg-white border-2">
