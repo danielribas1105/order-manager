@@ -2,10 +2,10 @@
 import Container from "@/components/layout/container"
 import ListaOrdensCompra from "@/components/ordensCompra/lista-ordens-compra"
 import HeaderPage from "@/components/templates/header-page"
+import FormOrdemCompra from "@/components/ordensCompra/form-ordem-compra"
 import listaOrdensCompra from "@/core/constants/ordensCompra"
 import { GerarIds, OrdemCompra } from "@/core"
 import { useState } from "react"
-import FormOrdemCompra from "@/components/ordensCompra/form-ordem-compra"
 
 export default function OrdensCompraPage() {
 
