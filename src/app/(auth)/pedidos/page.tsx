@@ -4,7 +4,7 @@ import ListaPedidos from "@/components/pedidos/lista-pedidos"
 import HeaderPage from "@/components/templates/header-page"
 import FormPedido from "@/components/pedidos/form-pedido"
 import listaPedidos from "@/core/constants/pedidos"
-import { GerarIds, Pedido } from "@/core"
+import { GerarIds, Pedido, pedidos } from "@/core"
 import { useState } from "react"
 
 export default function PedidosPage() {
@@ -21,11 +21,35 @@ export default function PedidosPage() {
       setPedido(novaListaPedidos)
    }
 
+   function salvarPedido() {
+      const pedidoExiste = pedidos.find((p) => p.id === pedidoAtual?.id)
+
+      if (pedidoExiste) {
+         const novosPedidos = pedidos.map((p) => {
+            return p.id === pedidoAtual?.id ? pedidoAtual : p
+         })
+         setPedido(novosPedidos as Pedido[])
+      } else {
+         setPedido([...pedidos, pedidoAtual as Pedido])
+      }
+      setPedidoAtual(null)
+   }
+
+   function cancelar() {
+      setPedidoAtual(null)
+   }
+
    return (
       <Container className="flex-col">
          <div>
             {pedidoAtual ? (
-               <FormPedido/>
+               <FormPedido
+                  pedido={pedidoAtual} 
+                  titleForm="PEDIDO"
+                  alteraPedido={selecionarPedido} 
+                  salvar={salvarPedido} 
+                  cancelar={cancelar}
+               />
             ) : (
                <>
                   <HeaderPage

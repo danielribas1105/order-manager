@@ -1,7 +1,7 @@
 import { GerarDatas, OrdemCompra } from "@/core"
-import Container from "../layout/container"
-import BtnsSaveCancel from "../templates/btns-save-cancel"
-import FiltroProduto from "../produtos/filtro-produto"
+import Container from "@/components/layout/container"
+import BtnsSaveCancel from "@/components/templates/btns-save-cancel"
+import FiltroProduto from "@/components/produtos/filtro-produto"
 import { IconPlus } from "@tabler/icons-react"
 
 export interface FormOrdemCompraProps {

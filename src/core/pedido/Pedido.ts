@@ -3,5 +3,6 @@ export default interface Pedido {
     idOrdemCompra: string
     idComprador: string
     idSupermercado: string
+    data: string
     qtdeCaixas: number
 }
