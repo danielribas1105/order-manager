@@ -85,7 +85,7 @@ export default function FormPedido(props: FormPedidoProps) {
                  </div>
                  <div className="flex flex-1 gap-4">
                     <div className="flex flex-1 flex-col">
-                       <span>Supermercado:</span>
+                       <span>Selecionar Supermercado:</span>
                        <input
                           className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                           placeholder="Quantidade de caixas por pallet"
@@ -93,36 +93,33 @@ export default function FormPedido(props: FormPedidoProps) {
                           value={pedido.idSupermercado ?? ""}
                        />
                     </div>
-                    <div className="flex flex-1 flex-col">
-                       <span>Quantidade de caixas:</span>
-                       <input
-                          className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                          placeholder="Total de pallets"
-                          onChange={(e) => alteraPedido({ ...pedido, qtdeCaixas: +e.target.value })}
-                          value={pedido.qtdeCaixas ?? ""}
-                       />
+                    <div className="flex flex-1 gap-2 items-center">
+                        <div className="flex flex-1 flex-col">
+                           <span>Quantidade de caixas:</span>
+                           <input
+                              className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
+                              placeholder="Total de pallets"
+                              onChange={(e) => alteraPedido({ ...pedido, qtdeCaixas: +e.target.value })}
+                              value={pedido.qtdeCaixas ?? ""}
+                           />
+                        </div>
+                        <div>
+                           <button
+                              className="flex justify-center items-center gap-1 px-2 py-1 font-logo text-xl text-logo-white bg-blue-400 hover:bg-blue-600 border-2 rounded-md"
+                              onClick={(e) => {
+                                 e.preventDefault()
+                                 console.log('Add caixas')
+                                 /* adicionarItem(props.produto) */
+                              }}>
+                              <IconPlus size={30} />
+                              <span>Adicionar</span>
+                           </button>
+                        </div>
                     </div>
                  </div>
-                 <div className="flex flex-1 gap-4">
-                    <div className="flex flex-1 flex-col">
-                       <span>qtdeCaixas:</span>
-                       <input
-                          className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                          placeholder="Quantidade de dias"
-                          onChange={(e) => alteraPedido({ ...pedido, qtdeCaixas: +e.target.value })}
-                          value={pedido.qtdeCaixas ?? ""}
-                       />
-                    </div>
-                    <div className="flex flex-1 flex-col">
-                       <span>idSupermercado:</span>
-                       <input
-                          className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
-                          placeholder="Tipo de entrega"
-                          onChange={(e) => alteraPedido({ ...pedido, idSupermercado: e.target.value })}
-                          value={pedido.idSupermercado ?? ""}
-                       />
-                    </div>
-                 </div>
+                  <div className="flex flex-1">
+                     Tabela com as caixas por supermercado
+                  </div>
               </div>
            </div>
            <div className="flex flex-1 justify-end">
