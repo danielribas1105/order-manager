@@ -12,7 +12,10 @@ export interface FormUsuarioProps {
 }
 
 export default function FormUsuario(props: FormUsuarioProps) {
+
    const { usuario, alteraUsuario, salvar, cancelar } = props
+   const statusOptions = ["Ativo", "Bloqueado", "Cancelado"]
+
    return (
       <Container className="flex-col">
          <div className="flex flex-col justify-between md:flex-row gap-4 items-center mb-4">
@@ -89,9 +92,9 @@ export default function FormUsuario(props: FormUsuarioProps) {
                            (e) => alteraUsuario({ ...usuario, status: e.target.value as "Ativo" | "Bloqueado" | "Cancelado"})
                         }>
                         <option value="" disabled hidden>Selecione uma opção</option>
-                        <option value="Ativo">Ativo</option>
-                        <option value="Bloqueado">Bloqueado</option>
-                        <option value="Cancelado">Cancelado</option>
+                        {statusOptions.map((status) => (
+                           <option key={status} value={status}>{status}</option>
+                        ))}
                      </select>
                   </div>
                </div>
