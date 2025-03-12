@@ -1,3 +1,14 @@
+enum PerfilUsuario {
+   ADMIN,
+   COMPRADOR,
+   OPERACIONAL,
+}
+
+enum StatusUsuario {
+   ATIVO,
+   BLOQUEADO,
+   CANCELADO
+}
 export default interface Usuario {
    id: string
    nome: string
@@ -5,6 +16,6 @@ export default interface Usuario {
    cpf: string
    imagemURL: string
    senha: string
-   perfil: 'Admin' | 'Comprador' | 'Operacional'
-   status: 'Ativo' | 'Bloqueado' | 'Cancelado'
+   perfil: PerfilUsuario
+   status: StatusUsuario
 }
