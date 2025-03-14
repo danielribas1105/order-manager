@@ -1,5 +1,5 @@
 export default interface OrdemCompra {
-   id: string
+   id: number
    data: string
    precoPromocional: number
    prazo: number
@@ -7,6 +7,6 @@ export default interface OrdemCompra {
    qtdeCaixasPallet: number
    entrega: string
    observacao?: string
-   status: 'Ativa' | 'Aguardando' | 'Cancelada'
-   idProduto: string
+   status: string
+   idProduto: number
 }

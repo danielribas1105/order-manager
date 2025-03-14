@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { OrdemCompra } from "@/core"
-import listaOrdensCompra from "@/core/constants/ordensCompra"
+import listaOrdensCompra from "@/data/constants/ordensCompra"
 
 export default function useOrdensCompra() {
 

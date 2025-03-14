@@ -1,9 +1,10 @@
+import { Pedido } from "@/core"
+import { IconPlus } from "@tabler/icons-react"
+import { GerarDatas } from "@/utils"
 import Container from "@/components/layout/container"
 import FiltroProduto from "@/components/produtos/filtro-produto"
 import BtnsSaveCancel from "@/components/templates/btns-save-cancel"
-import listaCompradores from "@/core/constants/usuarios"
-import { GerarDatas, Pedido, Usuario } from "@/core"
-import { IconPlus } from "@tabler/icons-react"
+import listaCompradores from "@/data/constants/usuarios"
 
 export interface FormPedidoProps {
     pedido: Partial<Pedido>
@@ -17,7 +18,7 @@ export default function FormPedido(props: FormPedidoProps) {
 
     const { pedido, titleForm, alteraPedido, salvar, cancelar } = props
 
-    function selecionarComprador(id: string): string {
+    function selecionarComprador(id: number): string {
       let comprador = ''
       listaCompradores.forEach(c => {
          if(c.id === id){
@@ -51,7 +52,7 @@ export default function FormPedido(props: FormPedidoProps) {
                        <input
                           className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                           placeholder="Nome do produto"
-                          onChange={(e) => alteraPedido({ ...pedido, idOrdemCompra: e.target.value })}
+                          onChange={(e) => alteraPedido({ ...pedido, idOrdemCompra: +e.target.value })}
                           value={pedido.idOrdemCompra ?? ""}
                        />
                     </div>
@@ -70,7 +71,7 @@ export default function FormPedido(props: FormPedidoProps) {
                        <input
                           className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                           placeholder="Nome do comprador"
-                          value={selecionarComprador(pedido.idComprador ?? "")}
+                          value={selecionarComprador(pedido.idComprador ?? -1)}
                        />
                     </div>
                     <div className="flex flex-1 flex-col">
@@ -89,7 +90,7 @@ export default function FormPedido(props: FormPedidoProps) {
                        <input
                           className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                           placeholder="Quantidade de caixas por pallet"
-                          onChange={(e) => alteraPedido({ ...pedido, idSupermercado: e.target.value })}
+                          onChange={(e) => alteraPedido({ ...pedido, idSupermercado: +e.target.value })}
                           value={pedido.idSupermercado ?? ""}
                        />
                     </div>

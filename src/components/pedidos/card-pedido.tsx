@@ -1,7 +1,7 @@
 'use client'
-import listaOrdensCompra from "@/core/constants/ordensCompra"
 import { OrdemCompra, Pedido } from "@/core"
 import { IconEdit, IconTrash } from "@tabler/icons-react"
+import listaOrdensCompra from "@/data/constants/ordensCompra"
 
 export interface CardPedidoProps {
    pedido: Pedido
@@ -12,11 +12,11 @@ export interface CardPedidoProps {
 export default function CardPedido(props: CardPedidoProps) {
    const { pedido } = props
 
-   function selecionarNomeProduto(listaOrdensCompra: OrdemCompra[], idOrdemCompra: string): string {
+   function selecionarNomeProduto(listaOrdensCompra: OrdemCompra[], idOrdemCompra: number): string {
         let nomeProduto = ''
         listaOrdensCompra.forEach(oc => {
             if(oc.id === idOrdemCompra) {
-                nomeProduto = oc.idProduto
+                nomeProduto = 'encontrar o nome do produto'
             }
         });
         return nomeProduto

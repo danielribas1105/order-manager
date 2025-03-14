@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Supermercado } from "@/core"
-import listaSupermercados from "@/core/constants/supermercados"
+import listaSupermercados from "@/data/constants/supermercados"
 
 export default function useSupermercado() {
 

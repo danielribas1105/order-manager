@@ -1,11 +1,12 @@
 'use client'
+import { useState } from "react"
+import { Usuario } from "@/core"
+import { GerarIds } from "@/utils"
 import Container from "@/components/layout/container"
 import HeaderPage from "@/components/templates/header-page"
 import FormUsuario from "@/components/usuarios/form-usuario"
 import ListaUsuarios from "@/components/usuarios/lista-usuarios"
-import { GerarIds, Usuario } from "@/core"
-import listaUsuarios from "@/core/constants/usuarios"
-import { useState } from "react"
+import listaUsuarios from "@/data/constants/usuarios"
 
 export default function UsuariosPage() {
 
@@ -55,7 +56,7 @@ export default function UsuariosPage() {
                      titulo="USUÁRIOS CADASTRADOS"
                      textoBtn="Adicionar Usuário"
                      placeholder="Buscar usuário"
-                     functionBtn={() => selecionarUsuario({ id: GerarIds.newId() })}
+                     functionBtn={() => selecionarUsuario({ id: GerarIds.generateUniqueId() })}
                   />
                   <ListaUsuarios 
                      usuarios={usuarios} 

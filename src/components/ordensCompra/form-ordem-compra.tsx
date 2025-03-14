@@ -1,8 +1,9 @@
-import { GerarDatas, OrdemCompra } from "@/core"
+import { OrdemCompra } from "@/core"
+import { IconPlus } from "@tabler/icons-react"
+import { GerarDatas } from "@/utils"
 import Container from "@/components/layout/container"
 import BtnsSaveCancel from "@/components/templates/btns-save-cancel"
 import FiltroProduto from "@/components/produtos/filtro-produto"
-import { IconPlus } from "@tabler/icons-react"
 
 export interface FormOrdemCompraProps {
    ordemCompra: Partial<OrdemCompra>
@@ -40,7 +41,7 @@ export default function FormOrdemCompra(props: FormOrdemCompraProps) {
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                         placeholder="Nome do produto"
-                        onChange={(e) => alteraOrdemCompra({ ...ordemCompra, idProduto: e.target.value })}
+                        onChange={(e) => alteraOrdemCompra({ ...ordemCompra, idProduto: +e.target.value })}
                         value={ordemCompra.idProduto ?? ""}
                      />
                   </div>

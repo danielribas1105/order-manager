@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Produto } from "@/core"
-import listaProdutos from "@/core/constants/produtos"
+import listaProdutos from "@/data/constants/produtos"
 
 export default function useProdutos() {
 

@@ -1,8 +1,8 @@
 export default interface Pedido {
-    id: string
-    idOrdemCompra: string
-    idComprador: string
-    idSupermercado: string
-    data: string
-    qtdeCaixas: number
+   id: number
+   idOrdemCompra: number
+   idComprador: number
+   idSupermercado: number
+   data: string
+   qtdeCaixas: number
 }

@@ -1,11 +1,12 @@
 'use client'
+import { useState } from "react"
+import { Produto } from "@/core"
+import { GerarIds } from "@/utils"
 import Container from "@/components/layout/container"
 import ListaProdutos from "@/components/produtos/lista-produtos"
 import HeaderPage from "@/components/templates/header-page"
-import { GerarIds, Produto } from "@/core"
-import { useState } from "react"
-import listaProdutos from "@/core/constants/produtos"
 import FormProduto from "@/components/produtos/form-produto"
+import listaProdutos from "@/data/constants/produtos"
 
 export default function ProdutosPage() {
 
@@ -55,7 +56,7 @@ export default function ProdutosPage() {
                      titulo="PRODUTOS CADASTRADOS"
                      textoBtn="Adicionar Produto"
                      placeholder="Burcar produto" 
-                     functionBtn={() => selecionarProduto({ id: GerarIds.newId() })}
+                     functionBtn={() => selecionarProduto({ id: GerarIds.generateUniqueId() })}
                   />
                   <ListaProdutos 
                      produtos={produtos} 

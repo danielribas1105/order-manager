@@ -1,11 +1,12 @@
 'use client'
+import { useState } from "react"
+import { OrdemCompra } from "@/core"
+import { GerarIds } from "@/utils"
 import Container from "@/components/layout/container"
 import ListaOrdensCompra from "@/components/ordensCompra/lista-ordens-compra"
 import HeaderPage from "@/components/templates/header-page"
 import FormOrdemCompra from "@/components/ordensCompra/form-ordem-compra"
-import listaOrdensCompra from "@/core/constants/ordensCompra"
-import { GerarIds, OrdemCompra } from "@/core"
-import { useState } from "react"
+import listaOrdensCompra from "@/data/constants/ordensCompra"
 
 export default function OrdensCompraPage() {
 
@@ -55,7 +56,7 @@ export default function OrdensCompraPage() {
                      titulo="ORDENS DE COMPRA CADASTRADAS"
                      textoBtn={"Adicionar Ordem de Compra"}
                      placeholder={"Buscar ordem de compra"}
-                     functionBtn={() => selecionarOrdemCompra({ id: GerarIds.gerarIdUnico() })}
+                     functionBtn={() => selecionarOrdemCompra({ id: GerarIds.generateUniqueId() })}
                   />
                   <ListaOrdensCompra
                      ordensCompra={ordensCompra}

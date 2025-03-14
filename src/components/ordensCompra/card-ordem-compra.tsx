@@ -1,8 +1,8 @@
 'use client'
 import { useState } from "react"
-import listaPedidos from "@/core/constants/pedidos"
 import { OrdemCompra, Pedido } from "@/core"
 import { IconChecklist, IconEdit, IconEyeCheck, IconTrash } from "@tabler/icons-react"
+import listaPedidos from "@/data/constants/pedidos"
 
 export interface CardOrdemCompraProps {
    ordemCompra: OrdemCompra

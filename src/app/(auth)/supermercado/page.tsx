@@ -1,11 +1,12 @@
 'use client'
 import { useState } from "react"
+import { Supermercado } from "@/core"
+import { GerarIds } from "@/utils"
 import Container from "@/components/layout/container"
 import HeaderPage from "@/components/templates/header-page"
 import FormSupermercado from "@/components/supermercado/form-supermercado"
 import ListaSupermercados from "@/components/supermercado/lista-supermercado"
-import { GerarIds, Supermercado } from "@/core"
-import listaSupermercados from "@/core/constants/supermercados"
+import listaSupermercados from "@/data/constants/supermercados"
 
 export default function SupermercadosPage() {
 
@@ -56,7 +57,7 @@ export default function SupermercadosPage() {
                      titulo="SUPERMERCADOS CADASTRADOS"
                      textoBtn="Adicionar Supermercado"
                      placeholder="Buscar supermercado"
-                     functionBtn={() => selecionarSupermercado({ id: GerarIds.newId() })}
+                     functionBtn={() => selecionarSupermercado({ id: GerarIds.generateUniqueId() })}
                   />
                   <ListaSupermercados
                      supermercados={supermercados}

@@ -1,7 +1,8 @@
 'use client'
 import Image from "next/image"
-import { IconEdit, IconTrash } from "@tabler/icons-react"
 import { Produto } from "@/core"
+import { IconEdit, IconTrash } from "@tabler/icons-react"
+import semImagem from "@/../public/images/img-user.png"
 
 export interface CardProdutoProps {
    produto: Produto
@@ -15,7 +16,7 @@ export default function CardProduto(props: CardProdutoProps) {
       <div className="w-64 h-72 bg-zinc-100 border-2 rounded-3xl p-2 text-zinc-800 hover:shadow-xl hover:shadow-logo-black/30">
          <div className="w-full h-24 relative bg-white">
             <Image
-               src={produto.imagemURL}
+               src={produto.imagemURL ?? semImagem}
                fill
                className="object-contain"
                alt="Foto do produto"

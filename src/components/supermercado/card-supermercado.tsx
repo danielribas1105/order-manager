@@ -1,6 +1,6 @@
 'use client'
-import { IconEdit, IconTrash } from "@tabler/icons-react"
 import { Supermercado } from "@/core"
+import { IconEdit, IconTrash } from "@tabler/icons-react"
 
 export interface CardSupermercadoProps {
    supermercado: Supermercado

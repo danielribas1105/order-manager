@@ -1,11 +1,12 @@
 'use client'
+import { useState } from "react"
+import { Pedido } from "@/core"
+import { GerarIds } from "@/utils"
 import Container from "@/components/layout/container"
 import ListaPedidos from "@/components/pedidos/lista-pedidos"
 import HeaderPage from "@/components/templates/header-page"
 import FormPedido from "@/components/pedidos/form-pedido"
-import listaPedidos from "@/core/constants/pedidos"
-import { GerarIds, Pedido, pedidos } from "@/core"
-import { useState } from "react"
+import listaPedidos from "@/data/constants/pedidos"
 
 export default function PedidosPage() {
 
@@ -22,15 +23,15 @@ export default function PedidosPage() {
    }
 
    function salvarPedido() {
-      const pedidoExiste = pedidos.find((p) => p.id === pedidoAtual?.id)
+      const pedidoExiste = listaPedidos.find((p) => p.id === pedidoAtual?.id)
 
       if (pedidoExiste) {
-         const novosPedidos = pedidos.map((p) => {
+         const novosPedidos = listaPedidos.map((p) => {
             return p.id === pedidoAtual?.id ? pedidoAtual : p
          })
          setPedido(novosPedidos as Pedido[])
       } else {
-         setPedido([...pedidos, pedidoAtual as Pedido])
+         setPedido([...listaPedidos, pedidoAtual as Pedido])
       }
       setPedidoAtual(null)
    }
@@ -56,7 +57,7 @@ export default function PedidosPage() {
                      titulo="PEDIDOS"
                      textoBtn={"Adicionar Pedido"}
                      placeholder={"Buscar ordem de compra por produto"}
-                     functionBtn={() => selecionarPedido({ id: GerarIds.gerarIdUnico() })}
+                     functionBtn={() => selecionarPedido({ id: GerarIds.generateUniqueId() })}
                   />
                   <ListaPedidos 
                      pedidos={listaPedidos} 
