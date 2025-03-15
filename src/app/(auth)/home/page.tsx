@@ -1,10 +1,27 @@
-import CardHome from "@/components/templates/card-home"
+'use client'
+import { useEffect, useState } from "react"
 import { IconBuildingStore, IconClipboardText, IconEdit, IconFileAnalytics, IconShoppingCart, IconUsers } from "@tabler/icons-react"
+import { Usuario } from "@/core"
+import CardHome from "@/components/templates/card-home"
 
 export default function Home() {
+   
+   const [ usuarioAtual, setUsuarioAtual ] = useState<Partial<Usuario> | null>(null)
+
+   useEffect(() => {
+      if (typeof window !== "undefined") {
+         const usuarioSalvo = localStorage.getItem("usuario");
+         if (usuarioSalvo) {
+            setUsuarioAtual(JSON.parse(usuarioSalvo)); // Converte de JSON para objeto
+         }
+      }
+   }, []);
+
    return (
       <div className="flex flex-col items-center md:items-start gap-5 md:basis-3/4">
-         <h1 className="font-logo font-bold text-xl text-logo-black">Bem-vindo ...nome do usuário!</h1>
+         <h1 className="font-logo font-bold text-xl text-logo-black">
+            Bem-vindo {usuarioAtual?.nome || "..."}!
+         </h1>
          <div className="flex flex-col md:flex-row md:flex-wrap gap-6">
             <CardHome
                link={"/produtos"}
