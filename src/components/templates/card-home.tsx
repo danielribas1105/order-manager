@@ -1,11 +1,13 @@
 import React, { ElementType } from "react"
 import Link from "next/link"
+import { Usuario } from "@/core"
 
 export interface CardProps {
    className?: string,
    link: string,
    titulo: string,
    descricao: string,
+   usuario: Partial<Usuario>
    icon: ElementType,
 }
 
