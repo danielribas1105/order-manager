@@ -11,7 +11,8 @@ const ordensCompra: OrdemCompra[] = [
       entrega: "Centralizada",
       observacao: "Faltam 10 pallets para fechar a carga",
       status: 'Ativa',
-      idProduto: 241209111517456
+      idProduto: 241209111517456,
+      idUsuario: 240101134595001
    },
    {
       id: 250209111517123,
@@ -23,7 +24,8 @@ const ordensCompra: OrdemCompra[] = [
       entrega: "Centralizada",
       observacao: "Faltam 10 pallets para fechar a carga",
       status: 'Ativa',
-      idProduto: 241211091537425
+      idProduto: 241211091537425,
+      idUsuario: 240101134595001
    },
    {
       id: 250226141517145,
@@ -35,7 +37,8 @@ const ordensCompra: OrdemCompra[] = [
       entrega: "Centralizada",
       observacao: "",
       status: 'Ativa',
-      idProduto: 241212141537240
+      idProduto: 241212141537240,
+      idUsuario: 240227154395002
    }
 ]
 

@@ -9,4 +9,5 @@ export default interface OrdemCompra {
    observacao?: string
    status: string
    idProduto: number
+   idUsuario: number
 }
