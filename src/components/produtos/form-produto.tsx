@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Produto } from "@/core"
 import Container from "../layout/container"
 import BtnsSaveCancel from "../templates/btns-save-cancel"
-import semImagem from "@/../public/images/img-user.png"
+import semImagem from "@/../public/images/no-image.jpg"
 
 export interface FormProdutoProps {
    produto: Partial<Produto>

@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { Produto } from "@/core"
 import { IconEdit, IconTrash } from "@tabler/icons-react"
-import semImagem from "@/../public/images/img-user.png"
+import semImagem from "@/../public/images/no-image.jpg"
 
 export interface CardProdutoProps {
    produto: Produto
