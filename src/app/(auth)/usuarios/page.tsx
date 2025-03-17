@@ -7,11 +7,17 @@ import HeaderPage from "@/components/templates/header-page"
 import FormUsuario from "@/components/usuarios/form-usuario"
 import ListaUsuarios from "@/components/usuarios/lista-usuarios"
 import listaUsuarios from "@/data/constants/usuarios"
+import { getUsers } from "@/app/actions/user"
 
-async function getUsers() {
+
+/* async function getUsers() {
+   "use server"
+   const listaUsuarios = await prisma.usuarios.findMany();
    const res = await fetch('/api/users');
-   return res.json();
-}
+   //return res.json();
+   console.log("listaUsuarios"+listaUsuarios);
+   return listaUsuarios;
+} */
 
 export default function UsuariosPage() {
 
