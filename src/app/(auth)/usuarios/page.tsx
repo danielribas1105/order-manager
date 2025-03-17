@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Usuario } from "@/core"
 import { GerarIds } from "@/utils"
 import Container from "@/components/layout/container"
@@ -8,10 +8,19 @@ import FormUsuario from "@/components/usuarios/form-usuario"
 import ListaUsuarios from "@/components/usuarios/lista-usuarios"
 import listaUsuarios from "@/data/constants/usuarios"
 
+async function getUsers() {
+   const res = await fetch('/api/users');
+   return res.json();
+}
+
 export default function UsuariosPage() {
 
-   const [ usuarioAtual, setUsuarioAtual ] = useState<Partial<Usuario> | null>(null)
-   const [ usuarios, setUsuarios ] = useState<Usuario[]>(listaUsuarios)
+   const [usuarioAtual, setUsuarioAtual] = useState<Partial<Usuario> | null>(null)
+   const [usuarios, setUsuarios] = useState<Usuario[]>(listaUsuarios)
+
+   useEffect(() => {
+      getUsers().then(setUsuarios);
+   }, []);
 
    function selecionarUsuario(usuario: Partial<Usuario>) {
       setUsuarioAtual(usuario)
@@ -25,12 +34,12 @@ export default function UsuariosPage() {
    function salvarUsuario() {
       const usuarioExiste = usuarios.find((u) => u.id === usuarioAtual?.id)
 
-      if(usuarioExiste) {
+      if (usuarioExiste) {
          const novosUsuarios = usuarios.map((u) => {
             return u.id === usuarioAtual?.id ? usuarioAtual : u
          })
          setUsuarios(novosUsuarios as Usuario[])
-      }else {
+      } else {
          setUsuarios([...usuarios, usuarioAtual as Usuario])
       }
       setUsuarioAtual(null)
@@ -42,10 +51,15 @@ export default function UsuariosPage() {
 
    return (
       <Container className="flex-col">
+         <ul>
+            {usuarios.map(usuario => (
+               <li key={usuario.id}>{usuario.nome} - {usuario.email}</li>
+            ))}
+         </ul>
          <div>
-            { usuarioAtual ? (
-               <FormUsuario 
-                  usuario={usuarioAtual} 
+            {usuarioAtual ? (
+               <FormUsuario
+                  usuario={usuarioAtual}
                   alteraUsuario={selecionarUsuario}
                   salvar={salvarUsuario}
                   cancelar={cancelar}
@@ -58,10 +72,10 @@ export default function UsuariosPage() {
                      placeholder="Buscar usuário"
                      functionBtn={() => selecionarUsuario({ id: GerarIds.generateUniqueId() })}
                   />
-                  <ListaUsuarios 
-                     usuarios={usuarios} 
+                  <ListaUsuarios
+                     usuarios={usuarios}
                      selecionarUsuario={selecionarUsuario}
-                     removerUsuario={removerUsuario} 
+                     removerUsuario={removerUsuario}
                   />
                </>
             )}

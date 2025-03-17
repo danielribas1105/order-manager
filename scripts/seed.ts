@@ -4,17 +4,20 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
 async function main() {
-   const produto = await prisma.produtos.create({
+   const usuario = await prisma.usuarios.create({
       data: {
          id: GerarIds.generateUniqueId(),
-         nome: "Arroz Tio João 5Kg",
-         marca: "Tio João",
-         peso: "5Kg",
-         imagemURL: "/images/produtos/arroz-tio-joao-5kg.jpg"
+         nome: "Daniel Ribas",
+         email: "daniel@gmail.com",
+         cpf: "123.456.789-00",
+         senha: "daniel@01",
+         imagemURL: "/images/usuarios/daniel-ribas.jpg",
+         perfil: "Admin",
+         status: "Ativo"
       },
    });
 
-   console.log("Produto criado:", produto);
+   console.log("Produto criado:", usuario);
 }
 
 main()

@@ -44,6 +44,11 @@ model Usuarios {
    id          BigInt       @id
    email       String       @unique
    nome        String
+   cpf         String
+   senha       String
+   imagemURL   String
+   perfil      String
+   status      String
    ordemCompra OrdemCompra?
 
    @@map("usuarios")
