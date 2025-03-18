@@ -1,5 +1,5 @@
 export default interface Produto {
-   id: number
+   id: bigint
    nomeProduto: string
    marca?: string
    peso?: string

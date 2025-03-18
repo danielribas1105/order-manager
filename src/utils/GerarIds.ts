@@ -1,8 +1,9 @@
 import { v4 as uuid } from "uuid"
+import { bigint } from "zod";
 
 export default class GerarIds {
 
-   static generateUniqueId(): number {
+   static generateUniqueId(): bigint {
       const now = new Date();
       const year = now.getFullYear() % 100; // Pega os últimos dois dígitos do ano
       const month = now.getMonth() + 1; // Mês começa do zero, então adicionamos 1
@@ -13,7 +14,7 @@ export default class GerarIds {
       const millisecond = now.getMilliseconds();
 
       // Concatena os valores para formar um número único
-      const uniqueId = Number(
+      const uniqueId = BigInt(
          `${year}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}` +
          `${hour.toString().padStart(2, '0')}${minute.toString().padStart(2, '0')}` +
          `${second.toString().padStart(2, '0')}${millisecond.toString().padStart(3, '0')}`

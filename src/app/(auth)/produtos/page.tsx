@@ -75,7 +75,7 @@ export default function ProdutosPage() {
                      <div className="flex gap-2">
                         <button className="btn-default" onClick={() => selecionarProduto({ id: GerarIds.generateUniqueId() })}>
                            <IconPlus size={24} />
-                           "Adicionar Produto"
+                           {"Adicionar Produto"}
                         </button>
                         <BotaoLink link={"/home"} texto={"Voltar"} icon={IconCornerUpLeft} />
                      </div>

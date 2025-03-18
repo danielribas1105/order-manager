@@ -1,5 +1,5 @@
 export default interface Usuario {
-   id: number
+   id: bigint
    nome: string
    email: string
    cpf: string
