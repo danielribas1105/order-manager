@@ -52,7 +52,7 @@ export default function FormPedido(props: FormPedidoProps) {
                        <input
                           className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                           placeholder="Nome do produto"
-                          onChange={(e) => alteraPedido({ ...pedido, idOrdemCompra: +e.target.value })}
+                          onChange={(e) => alteraPedido({ ...pedido, idOrdemCompra: BigInt(e.target.value) })}
                           value={pedido.idOrdemCompra ?? ""}
                        />
                     </div>
@@ -90,7 +90,7 @@ export default function FormPedido(props: FormPedidoProps) {
                        <input
                           className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                           placeholder="Quantidade de caixas por pallet"
-                          onChange={(e) => alteraPedido({ ...pedido, idSupermercado: +e.target.value })}
+                          onChange={(e) => alteraPedido({ ...pedido, idSupermercado: BigInt(e.target.value) })}
                           value={pedido.idSupermercado ?? ""}
                        />
                     </div>
