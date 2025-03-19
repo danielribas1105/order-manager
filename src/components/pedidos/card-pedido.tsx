@@ -12,7 +12,7 @@ export interface CardPedidoProps {
 export default function CardPedido(props: CardPedidoProps) {
    const { pedido } = props
 
-   function selecionarNomeProduto(listaOrdensCompra: OrdemCompra[], idOrdemCompra: number): string {
+   function selecionarNomeProduto(listaOrdensCompra: OrdemCompra[], idOrdemCompra: string): string {
         let nomeProduto = ''
         listaOrdensCompra.forEach(oc => {
             if(oc.id === idOrdemCompra) {

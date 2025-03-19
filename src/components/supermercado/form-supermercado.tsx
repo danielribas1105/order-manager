@@ -52,7 +52,7 @@ export default function FormSupermercado(props: FormSupermercadoProps) {
                   <input
                      className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                      placeholder="Apenas números"
-                     onChange={ (e) => alteraSupermercado({ ...supermercado, idComprador: BigInt(e.target.value)})}
+                     onChange={ (e) => alteraSupermercado({ ...supermercado, idComprador: e.target.value})}
                      value={supermercado.idComprador ?? ""}
                   />
                </div>
