@@ -7,11 +7,11 @@ async function main() {
    const usuario = await prisma.usuarios.create({
       data: {
          id: GerarIds.newId(),
-         nome: "Daniel Ribas",
-         email: "daniel@gmail.com",
-         cpf: "123.456.789-00",
-         senha: "daniel@01",
-         imagemURL: "/images/usuarios/daniel-ribas.jpg",
+         nome: "Bianca",
+         email: "bianca@gmail.com",
+         cpf: "374.187.845-01",
+         senha: "bianca@01",
+         imagemURL: "",
          perfil: "Admin",
          status: "Ativo"
       },
