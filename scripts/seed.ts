@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function main() {
    const usuario = await prisma.usuarios.create({
       data: {
-         id: GerarIds.generateUniqueId(),
+         id: GerarIds.newId(),
          nome: "Daniel Ribas",
          email: "daniel@gmail.com",
          cpf: "123.456.789-00",
