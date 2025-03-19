@@ -56,7 +56,7 @@ export default function OrdensCompraPage() {
                      titulo="ORDENS DE COMPRA CADASTRADAS"
                      textoBtn={"Adicionar Ordem de Compra"}
                      placeholder={"Buscar ordem de compra"}
-                     functionBtn={() => selecionarOrdemCompra({ id: GerarIds.generateUniqueId() })}
+                     functionBtn={() => selecionarOrdemCompra({ id: GerarIds.newId() })}
                   />
                   <ListaOrdensCompra
                      ordensCompra={ordensCompra}

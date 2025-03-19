@@ -1,5 +1,5 @@
 export default interface OrdemCompra {
-   id: bigint
+   id: string
    data: string
    precoPromocional: number
    prazo: number
@@ -8,6 +8,6 @@ export default interface OrdemCompra {
    entrega: string
    observacao?: string
    status: string
-   idProduto: bigint
-   idUsuario: bigint
+   idProduto: string
+   idUsuario: string
 }

@@ -57,7 +57,7 @@ export default function SupermercadosPage() {
                      titulo="SUPERMERCADOS CADASTRADOS"
                      textoBtn="Adicionar Supermercado"
                      placeholder="Buscar supermercado"
-                     functionBtn={() => selecionarSupermercado({ id: GerarIds.generateUniqueId() })}
+                     functionBtn={() => selecionarSupermercado({ id: GerarIds.newId() })}
                   />
                   <ListaSupermercados
                      supermercados={supermercados}

@@ -1,7 +1,7 @@
 export default interface Supermercado {
-   id: bigint
+   id: string
    razaoSocial: string
    cnpj: string
    status: string
-   idComprador: bigint
+   idComprador: string
 }

@@ -57,7 +57,7 @@ export default function PedidosPage() {
                      titulo="PEDIDOS"
                      textoBtn={"Adicionar Pedido"}
                      placeholder={"Buscar ordem de compra por produto"}
-                     functionBtn={() => selecionarPedido({ id: GerarIds.generateUniqueId() })}
+                     functionBtn={() => selecionarPedido({ id: GerarIds.newId() })}
                   />
                   <ListaPedidos 
                      pedidos={listaPedidos} 

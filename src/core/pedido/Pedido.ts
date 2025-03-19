@@ -1,8 +1,8 @@
 export default interface Pedido {
-   id: bigint
-   idOrdemCompra: bigint
-   idComprador: bigint
-   idSupermercado: bigint
+   id: string
+   idOrdemCompra: string
+   idComprador: string
+   idSupermercado: string
    data: string
    qtdeCaixas: number
 }

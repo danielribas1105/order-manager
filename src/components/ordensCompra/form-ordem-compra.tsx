@@ -41,7 +41,7 @@ export default function FormOrdemCompra(props: FormOrdemCompraProps) {
                      <input
                         className="text-xl text-logo-black p-2 rounded-md border-2 outline-none"
                         placeholder="Nome do produto"
-                        onChange={(e) => alteraOrdemCompra({ ...ordemCompra, idProduto: BigInt(e.target.value) })}
+                        onChange={(e) => alteraOrdemCompra({ ...ordemCompra, idProduto: +e.target.value })}
                         value={ordemCompra.idProduto ?? ""}
                      />
                   </div>

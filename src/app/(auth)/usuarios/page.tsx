@@ -76,7 +76,7 @@ export default function UsuariosPage() {
                      titulo="USUÁRIOS CADASTRADOS"
                      textoBtn="Adicionar Usuário"
                      placeholder="Buscar usuário"
-                     functionBtn={() => selecionarUsuario({ id: GerarIds.generateUniqueId() })}
+                     functionBtn={() => selecionarUsuario({ id: GerarIds.newId() })}
                   />
                   <ListaUsuarios
                      usuarios={usuarios}

@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Produtos {
-   id             BigInt       @id
+   id             String       @id
    nome           String       @unique
    marca          String?
    peso           String?
@@ -23,7 +23,7 @@ model Produtos {
 }
 
 model OrdemCompra {
-   id               BigInt   @id
+   id               String   @id
    data             String
    preco            Float
    prazo            Int
@@ -33,15 +33,15 @@ model OrdemCompra {
    observacoes      String
    status           String
    produto          Produtos @relation(fields: [produtoId], references: [id])
-   produtoId        BigInt   @unique
+   produtoId        String   @unique
    usuario          Usuarios @relation(fields: [usuarioId], references: [id])
-   usuarioId        BigInt   @unique
+   usuarioId        String   @unique
 
    @@map("ordemcompra")
 }
 
 model Usuarios {
-   id          BigInt       @id
+   id          String       @id
    email       String       @unique
    nome        String
    cpf         String
